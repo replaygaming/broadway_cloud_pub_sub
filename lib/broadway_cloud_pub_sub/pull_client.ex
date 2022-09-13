@@ -106,7 +106,6 @@ defmodule BroadwayCloudPubSub.PullClient do
   defp pub_sub_msg_to_broadway_msg(pub_sub_msg, ack_builder) do
     %{
       "ackId" => ack_id,
-      "deliveryAttempt" => deliveryAttempt,
       "message" => message
     } = pub_sub_msg
 
@@ -117,7 +116,6 @@ defmodule BroadwayCloudPubSub.PullClient do
 
     metadata = %{
       attributes: metadata["attributes"],
-      deliveryAttempt: deliveryAttempt,
       messageId: metadata["messageId"],
       publishTime: parse_datetime(metadata["publishTime"])
     }
